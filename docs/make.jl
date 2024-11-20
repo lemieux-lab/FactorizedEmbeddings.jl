@@ -9,4 +9,5 @@ makedocs(
                ])
 deploydocs(;
     repo="github.com/lemieux-lab/FactorizedEmbeddings.jl",
+    # remotes="https://github.com/lemieux-lab/FactorizedEmbeddings.jl.git"
 )
