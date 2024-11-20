@@ -87,11 +87,6 @@ function train!(params, X, Y, model)
     return model 
 end 
 
-# generate params
-"""
-    generate_params(X_data, emb_size, nsteps_dim_redux, l2_val)
-outputs a dictionary containing parameters.
-"""
 generate_params(X_data, emb_size, nsteps_dim_redux, l2_val) = return Dict( 
     ## run infos 
     # "session_id" => session_id,  "modelid" =>  "$(bytes2hex(sha256("$(now())"))[1:Int(floor(end/3))])",

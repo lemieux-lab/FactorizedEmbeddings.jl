@@ -2,6 +2,7 @@
 Description sommaire.
 
 ## Function Documentation
+
 ```@docs
 fit
 ```
