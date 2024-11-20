@@ -100,6 +100,16 @@ generate_params(X_data, emb_size, nsteps_dim_redux, l2_val) = return Dict(
     "emb_size_1" => emb_size, "emb_size_2" => 100, "fe_layers_size"=> [100, 50, 50],
     )
 
+# fit function 
+"""
+    fit(X_data; dim_redux_size::Int=2, nsteps::Int=1000, l2::Float64=1e-7)
+
+This function instanciates a Factorized Embeddings model with default or imputed parameters. Then trains the model on the input data and returns the trained model.
+```
+X_data = ones(10_000, 10_000)
+trained_FE =  fit(X_data, dim_redux_size=2, nsteps=1000, l2=1e-7)
+``` 
+"""
 function fit(X_data; dim_redux_size::Int=2, nsteps::Int=1000, l2::Float64=1e-7)
     FE_params_dict = generate_params(X_data, dim_redux_size, nsteps, l2)
     X, Y = prep_FE(X_data);
@@ -110,6 +120,16 @@ function fit(X_data; dim_redux_size::Int=2, nsteps::Int=1000, l2::Float64=1e-7)
     return model 
 end 
 
+# fit_transform function 
+"""
+    fit_transform(X_data; dim_redux_size::Int=2, nsteps::Int=1000, l2::Float64=1e-7)
+
+This function instanciates a Factorized Embeddings model with default or imputed parameters. Then trains the model on the input data and returns the dimensionality-reduced sample embedding.
+```
+X_data = ones(10_000, 10_000)
+transformed_data =  fit(X_data, dim_redux_size=2, nsteps=1000, l2=1e-7)
+``` 
+"""
 function fit_transform(X_data; dim_redux_size::Int=2, nsteps::Int=1000, l2::Float64=1e-7)
     model = fit(X_data, dim_redux_size=dim_redux_size, nsteps = nsteps, l2=l2)
     return cpu(model[1][1].weight) 
