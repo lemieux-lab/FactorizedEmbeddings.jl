@@ -3,9 +3,9 @@ Description sommaire.
 
 ## Function Documentation
 ```@docs
-fit
+FactorizedEmbeddings.fit
 ```
 
 ```@docs
-fit_transform
+FactorizedEmbeddings.fit_transform
 ```
