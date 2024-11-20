@@ -13,3 +13,6 @@ model = FactorizedEmbeddings.get_embeddings(model; params) ## returns Tuple(Matr
 ```
 
 
+### Management of GPU
+To run on GPU, import required library beforehand. 
+Runs with NVIDIA by default.
